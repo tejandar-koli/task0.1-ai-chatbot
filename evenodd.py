@@ -1,6 +1,6 @@
 num = int(input("Enter a number: "))
-
-if num % 2 == 0:
+##here %refers to reminder aftr zero
+if num % 2 == 0: 
     print("Even")
 else:
     print("Odd")

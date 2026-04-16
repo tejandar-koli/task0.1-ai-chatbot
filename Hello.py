@@ -1,1 +1,2 @@
-print("Hello, this is my first Python program")
+name = input("Enter your name: ")
+print("Hello", name)

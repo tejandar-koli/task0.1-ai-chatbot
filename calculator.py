@@ -1,5 +1,5 @@
 num1 = float(input("Enter a number: "))
-op = input("Enter operation (+, -, *, /,//, %, ^): ")
+op = input("Enter operation (+, -, *, /, //, %, ^): ")
 num2 = float(input("Enter a number: "))
 
 if op == "+":
@@ -14,6 +14,12 @@ elif op == "*":
 elif op == "/":
     if num2 != 0:
         print(num1 / num2)
+    else:
+        print("Cannot divide by zero")
+
+elif op == "//":
+    if num2 != 0:
+        print(num1 // num2)
     else:
         print("Cannot divide by zero")
 

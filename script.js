@@ -3,14 +3,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputBox = document.getElementById("input");
     const chatBox = document.getElementById("chat");
 
-    window.send = function () {
+    window.send = async function () {
 
         const text = inputBox.value.trim();
         if (text === "") return;
 
         addMessage("You", text, "user");
 
-        const reply = getAIResponse(text);
+        // show loading message
+        addMessage("Bot", "Typing...", "bot");
+
+        const reply = await getAIResponse(text);
+
+        // remove "Typing..."
+        chatBox.lastChild.remove();
 
         addMessage("Bot", reply, "bot");
 
@@ -25,30 +31,18 @@ document.addEventListener("DOMContentLoaded", function () {
         chatBox.appendChild(msg);
     }
 
-    function getAIResponse(text) {
-        text = text.toLowerCase();
+    async function getAIResponse(text) {
 
-        if (text.includes("hello") || text.includes("hi")) {
-            return "Hello 👋 I am Task0.1 AI";
-        }
+        const res = await fetch("YOUR_BACKEND_URL/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ message: text })
+        });
 
-        if (text.includes("name")) {
-            return "I am Task0.1 AI Bot 🤖";
-        }
-
-        if (text.includes("how are you")) {
-            return "I am running inside your browser 😊";
-        }
-
-        if (text.includes("joke")) {
-            return "Why did the computer get cold? Because it left its Windows open 😄";
-        }
-
-        if (text.includes("what can you do")) {
-            return "I can chat with you and improve step by step 🚀";
-        }
-
-        return "Hmm 🤔 I am still learning this...";
+        const data = await res.json();
+        return data.reply;
     }
 
 });

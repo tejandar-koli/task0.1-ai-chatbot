@@ -5,64 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task0.1 AI Chatbot</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        h2 {
-            margin-top: 20px;
-        }
-
-        #chat {
-            width: 90%;
-            max-width: 500px;
-            height: 400px;
-            margin: 20px auto;
-            border: 1px solid #444;
-            background: #222;
-            padding: 10px;
-            overflow-y: auto;
-            text-align: left;
-        }
-
-        input {
-            width: 65%;
-            padding: 10px;
-            border: none;
-            outline: none;
-        }
-
-        button {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .user {
-            color: #00ffcc;
-        }
-
-        .bot {
-            color: #ffcc00;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h2>🤖 Task0.1 AI Chatbot</h2>
+    <header>
+        <h2>🤖 Task0.1 AI Chatbot</h2>
+    </header>
 
     <div id="chat"></div>
 
-    <input id="input" type="text" placeholder="Type your message..." />
-    <button onclick="send()">Send</button>
+    <div class="input-area">
+        <input id="input" type="text" placeholder="Type your message..." />
+        <button onclick="send()">Send</button>
+    </div>
 
-    <!-- JS file connected -->
     <script src="script.js"></script>
 
 </body>

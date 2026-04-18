@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task0.1 AI Chatbot</title>
+</head>
+<body>
+
+<h2>🤖 Task0.1 AI Chatbot</h2>
+
+<div id="chat"></div>
+
+<input id="input" placeholder="Type here..." />
+<button onclick="send()">Send</button>
+
+<script>
+function send() {
+    let text = document.getElementById("input").value;
+
+    document.getElementById("chat").innerHTML += "<p>You: " + text + "</p>";
+
+    let reply = "I am your basic AI chatbot 🤖";
+
+    document.getElementById("chat").innerHTML += "<p>Bot: " + reply + "</p>";
+
+    document.getElementById("input").value = "";
+}
+</script>
+
+</body>
+</html>
